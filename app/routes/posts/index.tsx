@@ -1,25 +1,7 @@
 import {Link, useLoaderData} from "remix";
+import {getPost, Post} from "~/post";
 
-export type Post = {
-    id: number;
-    slug: string;
-    title: string;
-}
-export const loader = (): Post[] => {
-    return [
-        {
-            id: 0,
-            title: "My First Post",
-            slug: "my-first-post",
-        },
-        {
-            id: 1,
-            title: "A App I Made Just For You",
-            slug: "90s-app",
-        }
-    ];
-};
-
+export const loader = () => getPost();
 
 const Posts = () => {
     const posts = useLoaderData<Post[]>();
